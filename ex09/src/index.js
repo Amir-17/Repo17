@@ -9,7 +9,7 @@ function getUsers() {
     var output = "";
 
     for (var i = 0; i < users.length; i++) {
-        output += `${users[i].id} - ${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender}\n `;
+        output += `${users[i].id} - ${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender}\n`;
     };
     console.log(output);
     return output;
@@ -17,16 +17,16 @@ function getUsers() {
 
 function findUserById(id) {
     try {
-        var user = _.find(users, { id: id });
-        var iFindUser = `${users[i].id} - ${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender}`;
+        var user = users.find((user) => user.id == id);
+        var iFindUser = `${user.id} - ${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
         return iFindUser;
     } catch (error) {
-        console.log("Cannot read property 'id'");
         return "Cannot read property 'id'";
     };
 };
 
 getUsers();
 console.log(findUserById(2));
+console.log(findUserById(5));
 
 module.exports = findUserById;
